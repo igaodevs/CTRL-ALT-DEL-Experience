@@ -27,6 +27,7 @@ function App() {
           <Route path="/explore" element={<ExplorationRoom />} />
           <Route path="/reset" element={<ResetScreen />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/hackermap" element={<HackerMapPage />} />
 
           {/* Allow Tempo routes */}
           {import.meta.env.VITE_TEMPO === "true" && (

@@ -354,12 +354,21 @@ const ExplorationRoom: React.FC = () => {
             intensity="high"
           />
 
-          <GlitchButton
-            onClick={() => setShowResetPrompt(true)}
-            glitchIntensity="high"
-          >
-            INITIATE RESET
-          </GlitchButton>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <GlitchButton
+              onClick={() => setShowResetPrompt(true)}
+              glitchIntensity="high"
+            >
+              INITIATE RESET
+            </GlitchButton>
+
+            <GlitchButton
+              onClick={() => navigate("/hackermap")}
+              variant="outline"
+            >
+              HACKER MAP
+            </GlitchButton>
+          </div>
         </div>
       </div>
     </InteractiveBlock>,

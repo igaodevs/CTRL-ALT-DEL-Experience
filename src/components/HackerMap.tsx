@@ -578,8 +578,8 @@ const HackerMap: React.FC<HackerMapProps> = ({
   };
 
   return (
-    <div className="hacker-map-container relative w-full h-full bg-black">
-      <style jsx>{`
+    <div className="relative w-full h-full bg-black hacker-map-container">
+      <style>{`
         .hacker-map-container {
           position: relative;
           width: 100%;
@@ -838,7 +838,7 @@ const HackerMap: React.FC<HackerMapProps> = ({
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+            className="absolute z-30 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           >
             <GlitchText
               text="ATTACK MITIGATED"

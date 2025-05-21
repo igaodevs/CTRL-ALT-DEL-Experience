@@ -5,6 +5,7 @@ import {
   DotFilledIcon,
 } from "@radix-ui/react-icons"
 import * as MenubarPrimitive from "@radix-ui/react-menubar"
+import { useTranslation } from 'react-i18next';
 
 import { cn } from "@/lib/utils"
 
@@ -217,6 +218,15 @@ const MenubarShortcut = ({
   )
 }
 MenubarShortcut.displayname = "MenubarShortcut"
+
+export function LanguageSwitcher() {
+  const { i18n } = useTranslation();
+  return (
+    <MenubarItem onClick={() => i18n.changeLanguage(i18n.language === 'pt-BR' ? 'en' : 'pt-BR')}>
+      {i18n.language === 'pt-BR' ? 'Mudar para Inglês' : 'Switch to Portuguese'}
+    </MenubarItem>
+  );
+}
 
 export {
   Menubar,

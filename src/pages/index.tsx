@@ -6,9 +6,11 @@ import GlitchButton from "@/components/GlitchButton";
 import CustomCursor from "@/components/CustomCursor";
 import { soundController } from "@/utils/soundController";
 import { interactionTracker } from "@/utils/interactionTracker";
+import { useTranslation } from 'react-i18next';
 
 const BootScreen: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [bootStage, setBootStage] = useState(0);
   const [showCtrlAltDel, setShowCtrlAltDel] = useState(false);
   const [keysPressed, setKeysPressed] = useState<Record<string, boolean>>({
@@ -38,16 +40,16 @@ const BootScreen: React.FC = () => {
   // Boot sequence
   useEffect(() => {
     const bootSequence = [
-      "Initializing system...",
-      "Loading kernel modules...",
-      "ERROR: Memory corruption detected",
-      "Attempting recovery...",
-      "WARNING: System integrity compromised",
-      "Loading emergency protocols...",
-      "ERROR: Critical system failure",
-      "Initiating emergency boot sequence...",
-      "ALERT: Unauthorized access detected",
-      "System locked. Press CTRL+ALT+DEL to continue",
+      t('boot.initializing'),
+      t('boot.loadingKernel'),
+      t('boot.memoryError'),
+      t('boot.recovery'),
+      t('boot.integrityWarning'),
+      t('boot.loadingProtocols'),
+      t('boot.criticalError'),
+      t('boot.emergency'),
+      t('boot.unauthorized'),
+      t('boot.locked'),
     ];
 
     let timeout: number;
@@ -78,7 +80,7 @@ const BootScreen: React.FC = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [bootStage]);
+  }, [bootStage, t]);
 
   // Handle key presses for CTRL+ALT+DEL
   useEffect(() => {
@@ -195,7 +197,7 @@ const BootScreen: React.FC = () => {
           >
             <div className="mb-6">
               <GlitchText
-                text="CTRL//ALT//DEL to begin"
+                text={t('boot.ctrlAltDel')}
                 className="text-2xl md:text-4xl font-bold"
                 intensity="medium"
                 speed="medium"
@@ -222,7 +224,7 @@ const BootScreen: React.FC = () => {
 
             <div className="mt-8">
               <GlitchButton onClick={handleEnterSystem}>
-                FORCE ENTRY
+                {t('boot.forceEntry')}
               </GlitchButton>
             </div>
           </motion.div>

@@ -45,12 +45,9 @@ const ResetScreen: React.FC = () => {
   };
 
   const handleExplore = () => {
-    // This would typically link to the actual project/product
     soundController.play("success", { volume: 0.5 });
-
-    // For demo purposes, just go back to home
     setTimeout(() => {
-      window.location.href = "https://github.com/TempoLabsAI";
+      navigate("/newworld");
     }, 1000);
   };
 

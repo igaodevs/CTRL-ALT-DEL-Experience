@@ -1,0 +1,2 @@
+This directory contains sound files for the application.
+The actual sound files will be generated programmatically if not available.
